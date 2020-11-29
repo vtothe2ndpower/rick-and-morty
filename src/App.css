@@ -46,18 +46,18 @@ a {
 	font-size: 1.5rem;
 }
 
-.buttons button {
+.buttons i {
 	padding: 10px 15px;
 	margin: 10px 0;
 	background-color: #14a8c7;
 	color: white;
 	outline: 0;
-	border: solid 1px #d1d94c;
-	border-radius: 15px;
+	border: solid 4px #d1d94c;
+	border-radius: 50%;
 	margin: .75rem;
 }
 
-.buttons button:hover {
+.buttons i:hover {
 	cursor: pointer;
 	opacity: .9;
 	transition: opacity .25s ease-in-out;

@@ -8,8 +8,8 @@ class Buttons extends Component {
 				<p>
 					Page {page} of {data.pages}
 				</p>
-				{page !== 1 && <button onClick={handlePrevious}>LEFT</button>}
-				{page !== data.pages && <button onClick={handleNext}>RIGHT</button>}
+				{page !== 1 && <i onClick={handlePrevious} className="fas fa-arrow-left" />}
+				{page !== data.pages && <i onClick={handleNext} className="fas fa-arrow-right" />}
 			</div>
 		);
 	}
