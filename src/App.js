@@ -13,37 +13,50 @@ class App extends Component {
 			isLoading: true,
 			characters: [],
 			info: {},
-			query: ''
+			page: 1
 		};
 	}
 
 	setQuery = (e) => {
-		this.setState({ query: e });
+		this.getData(`https://rickandmortyapi.com/api/character/?name=${e}`);
 	};
 
 	togglePrevious = () => {
 		console.log('PREVIOUS PAGE CLICKED!');
+		this.getData(this.state.info.prev);
+		this.setState((curState) => ({
+			page: curState.page - 1
+		}));
 	};
 
 	toggleNext = () => {
-		console.log('NEXT PAGE CLICKED!');
-		this.setState({ URL: this.state.info.next });
+		console.log(this.state.info.next);
+		this.getData(this.state.info.next);
+		this.setState((curState) => ({
+			page: curState.page + 1
+		}));
+	};
+
+	getData = (url) => {
+		fetch(url)
+			.then((res) => res.json())
+			.then((data) => {
+				if (data.error) {
+					console.log(data.error);
+					// Add Alert
+				} else {
+					this.setState({ characters: data.results, isLoading: false, info: data.info });
+				}
+			})
+			.catch((err) => console.log(err));
 	};
 
 	componentDidMount() {
-		fetch('https://rickandmortyapi.com/api/character/')
-			.then((res) => res.json())
-			.then((data) => this.setState({ characters: data.results, isLoading: false, info: data.info }));
-	}
-
-	componentDidUpdate() {
-		fetch(`https://rickandmortyapi.com/api/character/?name=${this.state.query}`)
-			.then((res) => res.json())
-			.then((data) => this.setState({ characters: data.results, isLoading: false, info: data.info }));
+		this.getData('https://rickandmortyapi.com/api/character/');
 	}
 
 	render() {
-		const { isLoading, characters, info } = this.state;
+		const { isLoading, characters, info, page } = this.state;
 		return (
 			<div className="container">
 				<Header />
@@ -52,7 +65,7 @@ class App extends Component {
 						this.setQuery(q);
 					}}
 				/>
-				<Buttons handlePrevious={this.togglePrevious} handleNext={this.toggleNext} data={info} />
+				<Buttons handlePrevious={this.togglePrevious} handleNext={this.toggleNext} data={info} page={page} />
 				<CardContainer isLoading={isLoading} characters={characters} />
 			</div>
 		);
@@ -60,8 +73,3 @@ class App extends Component {
 }
 
 export default App;
-
-// Add All Characters - Pages,
-// Edit Styling
-
-// Can Filter Function Be More Efficient?

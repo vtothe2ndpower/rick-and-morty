@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 
 class Buttons extends Component {
 	render() {
-		const { data, handlePrevious, handleNext } = this.props;
+		const { data, handlePrevious, handleNext, page } = this.props;
 		return (
 			<div className="buttons">
-				<p>Page 1 of {data.pages}</p>
-				<button onClick={handlePrevious}>LEFT</button>
-				<button onClick={handleNext}>RIGHT</button>
+				<p>
+					Page {page} of {data.pages}
+				</p>
+				{page !== 1 && <button onClick={handlePrevious}>LEFT</button>}
+				{page !== data.pages && <button onClick={handleNext}>RIGHT</button>}
 			</div>
 		);
 	}

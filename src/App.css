@@ -37,6 +37,32 @@ a {
 	margin: 10px 0;
 }
 
+.buttons {
+	text-align: center;
+}
+
+.buttons p {
+	color: white;
+	font-size: 1.5rem;
+}
+
+.buttons button {
+	padding: 10px 15px;
+	margin: 10px 0;
+	background-color: #14a8c7;
+	color: white;
+	outline: 0;
+	border: solid 1px #d1d94c;
+	border-radius: 15px;
+	margin: .75rem;
+}
+
+.buttons button:hover {
+	cursor: pointer;
+	opacity: .9;
+	transition: opacity .25s ease-in-out;
+}
+
 header {
 	height: 200px;
 }
@@ -52,7 +78,7 @@ header img {
 }
 
 .search {
-	height: 100px;
+	height: 75px;
 }
 
 input[type='text'] {
@@ -140,22 +166,3 @@ input[type='text'] {
 		grid-template-columns: 1fr;
 	}
 }
-
-/* body {
-	background: url('img/background.jpg');
-	background: url(https://wallpaperscave.com/images/original/18/01-29/tv-series-rick-and-morty-16249.jpg);
-	background: url(https://wallpaperaccess.com/full/1268171.jpg);
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-position: center;
-	background-size: cover;
-}
-
-
-img {
-	display: block;
-	max-width: 230px;
-	max-height: 95px;
-	width: auto;
-	height: auto;
-} */
