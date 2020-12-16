@@ -47,13 +47,13 @@ a {
 }
 
 .buttons i {
-	padding: 10px 15px;
+	padding: 5px 15px;
 	margin: 10px 0;
 	background-color: #14a8c7;
 	color: white;
 	outline: 0;
 	border: solid 4px #d1d94c;
-	border-radius: 50%;
+	border-radius: 10px;
 	margin: .75rem;
 }
 

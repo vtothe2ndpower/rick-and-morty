@@ -19,6 +19,7 @@ class App extends Component {
 
 	setQuery = (e) => {
 		this.getData(`https://rickandmortyapi.com/api/character/?name=${e}`);
+		this.setState({ page: 1 });
 	};
 
 	togglePrevious = () => {
