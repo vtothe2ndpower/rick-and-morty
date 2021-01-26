@@ -64,17 +64,14 @@ a {
 }
 
 header {
-	height: 200px;
+	height: 175px;
 }
 
-header img {
+.center img {
+	display: block;
+	max-width: 100%;
 	width: 500px;
-}
-
-.center {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	margin: auto auto;
 }
 
 .search {
